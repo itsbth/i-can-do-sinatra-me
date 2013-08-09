@@ -3,7 +3,7 @@ require 'slim'
 require 'sinatra/sequel'
 
 set :views, File.dirname(__FILE__) + '/views'
-set :database, ENV['DATABASE_URL'] || 'postgres://localhost/icdsm'
+set :database, ENV['HEROKU_POSTGRESQL_GREEN_URL'] || 'postgres://localhost/icdsm'
 
 migration "create user table" do
   database.create_table :users do

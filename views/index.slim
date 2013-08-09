@@ -1,0 +1,33 @@
+doctype
+html
+  head
+    title Rocket Fuel Leak - LoL Team Register Page
+    css:
+      body { width: 960px; margin: 0 auto; font-family: sans-serif; }
+      .center { text-align: center; }
+      .red { color: red; }
+      .blue { color: blue; }
+  body
+    h2.center
+      span.red &lt;Rocket Fuel Leak&gt;
+      | - LoL Team Register Center
+    p
+      | Welcome to the register page for 
+      span.red &lt;RFL&gt;
+      | ! Please enter your WoW name and LoL name below to register.
+    form action="/register" method="post"
+      label for="wow_name"
+      input#wow_name type="text" name="wow_name"
+      label for="lol_name"
+      input#lol_name type="text" name="lol_name"
+      input#submit type="submit" value="Register"
+    hr
+    h2.center People who have registered so far...
+    ul
+      - users.each do |user|
+        li
+          em
+            span.red= user.wow_name
+            |  as 
+            span.blue= user.lol_name
+
